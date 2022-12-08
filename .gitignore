@@ -107,3 +107,5 @@ fmod.log
 
 # ignore scene template settings
 ProjectSettings/SceneTemplateSettings.json
+
+.idea/*
