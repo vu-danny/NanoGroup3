@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float Speed = 100f;
     private Camera _camera;
     private Rigidbody _rigidbody;
+    private Vector2 inputVector = Vector2.zero;
 
     private void Awake()
     {
@@ -18,11 +19,12 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.started)
-        {
-            Vector2 inputVector = context.ReadValue<Vector2>() * Speed;
-            _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
-        }
+        inputVector = context.ReadValue<Vector2>() * Speed;
+    }
+
+    private void Update()
+    {
+        _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
     }
 
     public float GetCameraDistanceValue()

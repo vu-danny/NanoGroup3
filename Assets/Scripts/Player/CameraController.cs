@@ -10,9 +10,9 @@ public class CameraController : MonoBehaviour
     private Vector3 offset;
 
     private Coroutine CoroutineDistanceStamp;
-    private float CameraDistanceValue = 1f;
+    private float CameraDistance = 1f;
     private Coroutine CoroutineRotationStamp;
-    private float oldAngle = 0f;
+    private float CameraAngle = 0f;
     
     
     void Start()
@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
  
     void LateUpdate()
     {
-        if (Player.GetCameraDistanceValue() != CameraDistanceValue)
+        if (Player.GetCameraDistanceValue() != CameraDistance)
         {
             Vector3 TargetOffset = new Vector3(0f, 
                 BaseOffset.y * Player.GetCameraDistanceValue(), 
@@ -39,33 +39,28 @@ public class CameraController : MonoBehaviour
         transform.position = Player.transform.position + offset;
         transform.LookAt(Player.transform.position + (Vector3.up));
         
+        
         Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
         Vector3 direction = new Vector3(vel.x, 0, vel.z).normalized;
-        float angle = Vector3.Angle(Vector3.forward, direction);
-        transform.RotateAround(Player.transform.position, Vector3.up, angle);
+        float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
         
-        // Ne marche pas encore
-        /*
-        if (Mathf.Abs(oldAngle - angle) > 3)
+        // Correction de la rotation, en prenant en compte les valeurs passant au négatif
+        if (Mathf.Abs(CameraAngle - angle) > 100f)
         {
-            if (CoroutineRotationStamp != null)
-            {
-                StopCoroutine(CoroutineRotationStamp);
-                CoroutineRotationStamp = null;
-            }
-            //CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, 1f));
+            if (angle > CameraAngle) CameraAngle += 360;
+            else angle += 360;
         }
-        else
-        {
-            transform.RotateAround(Player.transform.position, Vector3.up, angle);
-            oldAngle = angle; 
-        }*/
+        
+        if (CoroutineRotationStamp == null && Mathf.Abs(CameraAngle - angle) > 5)
+            CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .5f));
+        
+        transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
     }
 
     private IEnumerator DistanceEffect(Vector3 TargetOffset, float duration)
     {
         Vector3 CurrentOffset = offset;
-        CameraDistanceValue = Player.GetCameraDistanceValue();
+        CameraDistance = Player.GetCameraDistanceValue();
         
         float timer = 0f;
         while (timer < duration)
@@ -78,20 +73,18 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator SmoothRotation(float TargetAngle, float duration)
     {
-        float CurrentAngle = oldAngle;
-        oldAngle = TargetAngle; 
+        float CurrentAngle = CameraAngle;
         
         float timer = 0f;
-        Debug.Log("started");
         while (timer < duration)
         {
-            //Debug.Log(Mathf.Lerp(CurrentAngle, TargetAngle, timer / duration));
-            transform.RotateAround(Player.transform.position, Vector3.up, Mathf.Lerp(CurrentAngle, TargetAngle, timer / duration));
+            CameraAngle = Mathf.Lerp(CurrentAngle, TargetAngle, timer / duration);
             timer += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        Debug.Log("ended");
-        transform.RotateAround(Player.transform.position, Vector3.up, TargetAngle);
+
+        CameraAngle = TargetAngle;
+        CoroutineRotationStamp = null;
     }
 
     private void OnDrawGizmos()
