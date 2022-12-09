@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Vector2 inputVector = Vector2.zero;
 
     [System.NonSerialized] public bool Arrived = false;
+    [System.NonSerialized] public Snowman Snowman;
 
     private Vector3 InitPos;
     private Vector3 InitEul;
@@ -71,10 +72,9 @@ public class Player : MonoBehaviour
         else return 1f;
     }
 
-    public IEnumerator EndRun()
+    public void EndRun()
     {
-        yield return new WaitForSeconds(Time.deltaTime);
-        Arrived = true;
-        GameManager.instance.CheckForEnd();
+        _rigidbody.isKinematic = true;
+        Snowman.Build(this);
     }
 }

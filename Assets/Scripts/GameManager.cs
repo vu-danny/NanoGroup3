@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private Player Player1;
     private Player Player2;
+    [SerializeField] private Snowman Snowman1;
+    [SerializeField] private Snowman Snowman2;
 
     private void Awake()
     {
@@ -24,7 +26,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("start");
         Player1.StartRun();
         Player2.StartRun();
     }
@@ -33,7 +34,6 @@ public class GameManager : MonoBehaviour
     {
         if (Player1.Arrived && Player2.Arrived)
         {
-            Debug.Log("reset");
             Player1.Reset();
             Player2.Reset();
         }
@@ -44,10 +44,12 @@ public class GameManager : MonoBehaviour
         if (input.playerIndex == 0)
         {
             Player1 = input.GetComponentInChildren<Player>();
+            Player1.Snowman = Snowman1;
         }
         else 
         {
             Player2 = input.GetComponentInChildren<Player>();
+            Player2.Snowman = Snowman2;
         }
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
