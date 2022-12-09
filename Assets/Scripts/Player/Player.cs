@@ -11,10 +11,30 @@ public class Player : MonoBehaviour
     private Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
 
+    [System.NonSerialized] public bool Arrived = false;
+
+    private Vector3 InitPos;
+    private Vector3 InitEul;
+    private Vector3 InitSca;
+
     private void Awake()
     {
+        InitPos = transform.position;
+        InitEul = transform.eulerAngles;
+        InitSca = transform.localScale;
+        
         _camera = GetComponentInChildren<Camera>();
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void Reset()
+    {
+        Arrived = false;
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        transform.position = InitPos;
+        transform.eulerAngles = InitEul;
+        transform.localScale = InitSca;
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -43,5 +63,12 @@ public class Player : MonoBehaviour
         if (_rigidbody.velocity.magnitude > 15f) return 2f;
         else if (_rigidbody.velocity.magnitude > 10f) return 1.5f;
         else return 1f;
+    }
+
+    public IEnumerator EndRun()
+    {
+        yield return new WaitForSeconds(Time.deltaTime);
+        Arrived = true;
+        GameManager.instance.CheckForEnd();
     }
 }
