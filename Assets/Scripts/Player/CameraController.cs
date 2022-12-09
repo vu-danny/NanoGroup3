@@ -21,14 +21,21 @@ public class CameraController : MonoBehaviour
         offset = BaseOffset;
     }
  
+    /// <summary>
+    /// Called after all other functions each frame, this function adapts the Camera position and angle
+    /// according to the player position, direction and velocity speed. It calls 2 coroutine that smooth the camera movement.
+    /// </summary>
     void LateUpdate()
     {
+        // Check if the Camera distance value changed
         if (Player.GetCameraDistanceValue() != CameraDistance)
         {
+            // Retrieve the offset, based on player velocity
             Vector3 TargetOffset = new Vector3(0f, 
                 BaseOffset.y * Player.GetCameraDistanceValue(), 
                 BaseOffset.z * Player.GetCameraDistanceValue());
             
+            // Stops the last coroutine, if it didn't have the time to end
             if (CoroutineDistanceStamp != null)
             {
                 StopCoroutine(CoroutineDistanceStamp);
@@ -36,27 +43,38 @@ public class CameraController : MonoBehaviour
             }
             CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
         }
+        // Set the camera position, based on the previously calculated offset
         transform.position = Player.transform.position + offset;
+        // Set the camera rotation, that'll look a bit above the player
         transform.LookAt(Player.transform.position + (Vector3.up));
         
-        
+        // Get the angle of the difference between player velocity and world forward vector
         Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
         Vector3 direction = new Vector3(vel.x, 0, vel.z).normalized;
         float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
         
-        // Correction de la rotation, en prenant en compte les valeurs passant au négatif
+        // Angle correction, in case one of the value (current angle and targeted angle) aren't the same sign
         if (Mathf.Abs(CameraAngle - angle) > 100f)
         {
             if (angle > CameraAngle) CameraAngle += 360;
             else angle += 360;
         }
         
+        // If there is no rotation coroutine yet, and the angle difference is more than 5
+        // (to avoid rotation for a small amount), we start the CameraAngle smooth update
         if (CoroutineRotationStamp == null && Mathf.Abs(CameraAngle - angle) > 5)
             CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .5f));
         
+        // Set the orbital camera angle
         transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
     }
 
+    /// <summary>
+    /// Smooth the camera distance offset through a Coroutine
+    /// </summary>
+    /// <param name="TargetOffset">Targeted camera offset</param>
+    /// <param name="duration">Coroutine duration</param>
+    /// <returns>CameraDistance parameter value is changed</returns>
     private IEnumerator DistanceEffect(Vector3 TargetOffset, float duration)
     {
         Vector3 CurrentOffset = offset;
@@ -70,7 +88,13 @@ public class CameraController : MonoBehaviour
             yield return new WaitForSeconds(Time.deltaTime);
         }
     }
-
+    
+    /// <summary>
+    /// Smooth the orbital camera angle around the player through a Coroutine
+    /// </summary>
+    /// <param name="TargetAngle">Targeted camera angle</param>
+    /// <param name="duration">Coroutine duration</param>
+    /// <returns>CameraAngle parameter value is changed</returns>
     private IEnumerator SmoothRotation(float TargetAngle, float duration)
     {
         float CurrentAngle = CameraAngle;
