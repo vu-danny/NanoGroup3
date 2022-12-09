@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
         
         _camera = GetComponentInChildren<Camera>();
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.isKinematic = true;
+    }
+
+    public void StartRun()
+    {
+        _rigidbody.isKinematic = false;
     }
 
     public void Reset()
@@ -45,7 +51,7 @@ public class Player : MonoBehaviour
             // Input direction correction, according to the player velocity
             Vector3 direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized;
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            inputVector = Quaternion.Euler(angle * Vector3.up) * inputVector;
+            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x, 0, 0);
         }
     }
 
