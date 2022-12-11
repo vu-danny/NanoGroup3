@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutoGrowth : MonoBehaviour
+public class SnowballSizer : MonoBehaviour
 {
     [SerializeField] private float maxSize;
 
@@ -32,5 +32,18 @@ public class AutoGrowth : MonoBehaviour
             transform.localScale += new Vector3(growth, growth, growth);
             size += growth;
         }
+        //TODO tweak snowball physics according to size
+    }
+
+    public void Shrink(int repetitions = 1){
+        for(int i = 0; i < repetitions*5; i++){
+            float delta = Mathf.InverseLerp(minSize, maxSize, size);
+            float shrinkage = growthFactor.Evaluate(delta);
+            if(size - shrinkage < minSize)
+                shrinkage = size - minSize;
+            transform.localScale -= new Vector3(shrinkage, shrinkage, shrinkage);
+            size -= shrinkage;
+        }
+        //TODO tweak snowball physics according to size
     }
 }

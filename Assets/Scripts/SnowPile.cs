@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SnowPile : MonoBehaviour
 {
-    [SerializeField] private float growthMultiplier;
+    [SerializeField] private int power;
     private void OnTriggerEnter(Collider other) {
-        other.gameObject.GetComponent<AutoGrowth>().Grow(20);
+        other.gameObject.GetComponent<SnowballSizer>().Grow(power);
         Destroy(gameObject);
     }
 }
