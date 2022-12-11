@@ -109,3 +109,4 @@ fmod.log
 ProjectSettings/SceneTemplateSettings.json
 
 .idea/*
+*.blob
