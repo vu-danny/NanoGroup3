@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FadingScreen.unity
     guid: f73b443894dba82458d91c06d461f142
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: ce5b6071d08750941a4b763082e682aa
   m_configObjects: {}
