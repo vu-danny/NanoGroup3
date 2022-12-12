@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public float Speed = 100f;
+    public bool RouleMaBoule = false;
+    public float Speed = 10f;
     private Camera _camera;
     private Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
         
         _camera = GetComponentInChildren<Camera>();
         _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.isKinematic = true;
+        if(!RouleMaBoule) _rigidbody.isKinematic = true;
     }
 
     public void StartRun()
