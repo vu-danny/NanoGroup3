@@ -54,8 +54,12 @@ public class GameManager : MonoBehaviour
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
         
+        
         StartCamera.gameObject.SetActive(false);
-        if (manager.playerCount == manager.maxPlayerCount)
+        if (manager.playerCount >= manager.maxPlayerCount)
+        {
+            manager.DisableJoining();
             HUD.Countdown.ToggleAnimator();
+        }
     }
 }
