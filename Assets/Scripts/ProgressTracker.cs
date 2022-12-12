@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ProgressTracker : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class ProgressTracker : MonoBehaviour
     [SerializeField] private float maxDistance;
     private List<float> playerProgress;
     private List<int> playerRanking;
-    [SerializeField] private GameObject UItrack;
+    [SerializeField] private GameObject UITrack;
 
     private float trackHeight;
 
     [SerializeField] private List<RectTransform> playerTrackIcons;
+
+    [SerializeField] private List<TMP_Text> playerRankText;
     
     void Awake(){
         playerProgress = new List<float>();
@@ -24,7 +27,7 @@ public class ProgressTracker : MonoBehaviour
             playerProgress.Add(0.0f);
             playerRanking.Add(i+1);
         }
-        trackHeight = UItrack.GetComponent<RectTransform>().sizeDelta.y;
+        trackHeight = UITrack.GetComponent<RectTransform>().sizeDelta.y;
     }
 
     void Update()
@@ -44,15 +47,25 @@ public class ProgressTracker : MonoBehaviour
     }
 
     void UpdateRanking(){
+        bool changed = false;
         if(playerTransforms.Count == 2){
             if(playerProgress[0] >= playerProgress [1]){
+                if (playerRanking[0] != 1)
+                    changed = true;
                 playerRanking[0] = 1;
                 playerRanking[1] = 2;
             }
             else{
+                if (playerRanking[0] != 2)
+                    changed = true;
                 playerRanking[0] = 2;
                 playerRanking[1] = 1;
             }
+        }
+        if(changed){
+            // TODO add bouncy animation on text change
+            playerRankText[0].text = ""+playerRanking[0];
+            playerRankText[1].text = ""+playerRanking[1];
         }
     }
     
