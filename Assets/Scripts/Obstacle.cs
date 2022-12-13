@@ -11,8 +11,8 @@ public class Obstacle : MonoBehaviour
         other.GetComponent<Rigidbody>().velocity*=speedMultiplier;
     }
 
-        private void OnTriggerStay(Collider other) {
+        /* private void OnTriggerStay(Collider other) {
         other.gameObject.GetComponent<SnowballSizer>().Shrink(shrinkageLevel);
         other.GetComponent<Rigidbody>().velocity*=0.98f;
-    }
+    } */
 }
