@@ -13,6 +13,8 @@ public class EndUI : MonoBehaviour
 
     private List<GameObject> registered;
 
+    [SerializeField] private GameObject progressTracker;
+
     private void Awake(){
         first = true;
         resDisplayers = new List<PlayerResultDisplayer>();
@@ -32,6 +34,8 @@ public class EndUI : MonoBehaviour
             resDisplayer.InitializeValues(first, pNumber, time, size);
             if(first)
                 winnerText.text = "Joueur "+pNumber+" l'emporte !";
+            else
+                progressTracker.SetActive(false);
             first = false;
             resDisplayers.Add(resDisplayer);
 

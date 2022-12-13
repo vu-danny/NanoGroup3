@@ -44,8 +44,10 @@ public class GameManager : MonoBehaviour
         if (Player1.Arrived && Player2.Arrived)
         {
             GameFinishedUI.SetActive(true);
+            /*
             Player1.Reset();
             Player2.Reset();
+            */
         }
     }
 
