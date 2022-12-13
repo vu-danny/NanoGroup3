@@ -16,11 +16,12 @@ public class EndUI : MonoBehaviour
     }
 
     public void AddResult(GameObject playerObject){
+        Player player = playerObject.GetComponent<Player>();
         GameObject resultLine = GameObject.Instantiate(resultLinePrefab, resultLines.transform);
         PlayerResultDisplayer resDisplayer = resultLine.GetComponent<PlayerResultDisplayer>();
-        int pNumber = 1; // TODO
-        float time = playerObject.GetComponent<Player>().Timer;
-        float size = playerObject.transform.localScale.x; // TODO switch to script
+        int pNumber = player.number;
+        float time = player.Timer;
+        float size = playerObject.GetComponent<SnowballSizer>().Size;
         resDisplayer.InitializeValues(first, pNumber, time, size);
         if(first)
             winnerText.text = "Joueur "+pNumber+" l'emporte !";

@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public float Timer{get{ return time;}}
     bool started;
 
+    public int number;
+
     private void Awake()
     {
         time = 0.0f;
