@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6800269612977920910}
   - component: {fileID: 6800269612977920905}
   m_Layer: 5
-  m_Name: UI_regles_du_jeu
+  m_Name: InstructionScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6800269612977920905
 MonoBehaviour:
   m_ObjectHideFlags: 0
