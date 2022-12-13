@@ -42,8 +42,14 @@ public class SnowballSizer : MonoBehaviour
             if(size - shrinkage < minSize)
                 shrinkage = size - minSize;
             transform.localScale -= new Vector3(shrinkage, shrinkage, shrinkage);
+            transform.localPosition -= new Vector3(0, shrinkage/2, 0);
             size -= shrinkage;
         }
         //TODO tweak snowball physics according to size
+    }
+
+    public float Size 
+    {
+        get { return size; }
     }
 }
