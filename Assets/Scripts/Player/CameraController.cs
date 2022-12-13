@@ -45,7 +45,6 @@ public class CameraController : MonoBehaviour
             CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
         }
         // Set the camera position, based on the previously calculated offset
-        Debug.Log(((Vector3.up + Vector3.back) * (Player.transform.localScale.x -1)));
         transform.position = Player.transform.position + offset + ((Vector3.up + Vector3.back) * (Player.transform.localScale.x -1));
         
         // Set the camera rotation, that'll look a bit above the player

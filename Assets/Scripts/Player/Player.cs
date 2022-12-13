@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     [System.NonSerialized] public bool Arrived = false;
     [System.NonSerialized] public Snowman Snowman;
+    
+    
+    [SerializeField] private ParticleSystem Trail;
+    [SerializeField] private ParticleSystem Spin;
 
     private Vector3 InitPos;
     private Vector3 InitEul;
@@ -35,6 +39,7 @@ public class Player : MonoBehaviour
         InitSca = transform.localScale;
         
         _rigidbody = GetComponent<Rigidbody>();
+
         if(!RouleMaBoule) _rigidbody.isKinematic = true;
     }
 
@@ -66,12 +71,29 @@ public class Player : MonoBehaviour
         _rigidbody.velocity =
             Vector3.ClampMagnitude(_rigidbody.velocity, SpeedBasedOnScale.Evaluate(transform.localScale.x));
     }
-    
+
+    private void LateUpdate()
+    {
+        //Rotation correction
+        Spin.transform.LookAt(transform.position + new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
+        Trail.transform.rotation =
+            Quaternion.LookRotation(-new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
+
+        // RateOverTime according to Player Speed
+        float velocityInterpolation = Mathf.InverseLerp(0, SpeedBasedOnScale[SpeedBasedOnScale.length - 1].value, _rigidbody.velocity.magnitude);
+        var emission = Spin.emission;
+        emission.rateOverTime = velocityInterpolation * 100;
+        emission = Trail.emission;
+        emission.rateOverTime = velocityInterpolation * 100;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
         Debug.DrawLine(transform.position, transform.position + inputVector.x * _camera.transform.right);
         Debug.DrawLine(_camera.transform.position, _camera.transform.position + inputVector.x * _camera.transform.right);
+        Gizmos.color = Color.black;
+        Debug.DrawLine(transform.position, transform.position - (new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized) * transform.localScale.x);
     }
 
     private void FixedUpdate() {
@@ -96,5 +118,15 @@ public class Player : MonoBehaviour
         started = false;
         _rigidbody.isKinematic = true;
         Snowman.Build(this);
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.layer == 3) Trail.Stop();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.layer == 3) Trail.Play();
     }
 }
