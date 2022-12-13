@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ProgressTracker : MonoBehaviour
@@ -17,8 +18,9 @@ public class ProgressTracker : MonoBehaviour
     private float trackHeight;
 
     [SerializeField] private List<RectTransform> playerTrackIcons;
+    [SerializeField] private List<Image> playerRankImages;
+    [SerializeField] private List<Sprite> playerRankSprites;
 
-    [SerializeField] private List<TMP_Text> playerRankText;
     
     void Awake(){
         playerProgress = new List<float>();
@@ -26,6 +28,7 @@ public class ProgressTracker : MonoBehaviour
         for(int i = 0; i < playerTransforms.Count; i++){
             playerProgress.Add(0.0f);
             playerRanking.Add(i+1);
+            playerRankImages[i].sprite = playerRankSprites[i];
         }
         trackHeight = UITrack.GetComponent<RectTransform>().sizeDelta.y;
     }
@@ -64,8 +67,8 @@ public class ProgressTracker : MonoBehaviour
         }
         if(changed){
             // TODO add bouncy animation on text change
-            playerRankText[0].text = ""+playerRanking[0];
-            playerRankText[1].text = ""+playerRanking[1];
+            playerRankImages[0].sprite = playerRankSprites[playerRanking[0]-1];
+            playerRankImages[1].sprite = playerRankSprites[playerRanking[1]-1];
         }
     }
     

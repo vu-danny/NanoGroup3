@@ -6,8 +6,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Player Player;
-    public AnimationCurve LookUpCurve;
-    [SerializeField] private SnowballSizer _snowballSizer;
     private Vector3 BaseOffset;
     private Vector3 offset;
 
@@ -47,11 +45,11 @@ public class CameraController : MonoBehaviour
             CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
         }
         // Set the camera position, based on the previously calculated offset
-        Debug.Log(((Vector3.up + Vector3.back) * (_snowballSizer.Size-1)));
-        transform.position = Player.transform.position + offset + ((Vector3.up + Vector3.back) * (_snowballSizer.Size-1));
+        Debug.Log(((Vector3.up + Vector3.back) * (Player.transform.localScale.x -1)));
+        transform.position = Player.transform.position + offset + ((Vector3.up + Vector3.back) * (Player.transform.localScale.x -1));
         
         // Set the camera rotation, that'll look a bit above the player
-        transform.LookAt(Player.transform.position + Vector3.up + (Vector3.up * (_snowballSizer.Size-1) / 2) );
+        transform.LookAt(Player.transform.position + Vector3.up + (Vector3.up * (Player.transform.localScale.y) / 2) );
         
         // Get the angle of the difference between player velocity and world forward vector
         Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
