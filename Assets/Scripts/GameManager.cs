@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Snowman Snowman2;
 
     [SerializeField] private GameObject GameFinishedUI;
+    [SerializeField] private GameObject progressTracker;
 
     private void Awake()
     {
@@ -33,6 +34,9 @@ public class GameManager : MonoBehaviour
         Player2.number = 2;
         Player1.StartRun();
         Player2.StartRun();
+        progressTracker.GetComponent<ProgressTracker>().AddPlayerTransform(Player1.transform);
+        progressTracker.GetComponent<ProgressTracker>().AddPlayerTransform(Player2.transform);
+        progressTracker.SetActive(true);
     }
 
     public void CheckForEnd()

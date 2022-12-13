@@ -21,13 +21,19 @@ public class ProgressTracker : MonoBehaviour
     [SerializeField] private List<Image> playerRankImages;
     [SerializeField] private List<Sprite> playerRankSprites;
 
-    
+    public void AddPlayerTransform(Transform playerTransform){
+        if(playerTransforms == null)
+            playerTransforms = new List<Transform>();
+        playerTransforms.Add(playerTransform);
+    }
+
     void Awake(){
         playerProgress = new List<float>();
         playerRanking = new List<int>();
         for(int i = 0; i < playerTransforms.Count; i++){
             playerProgress.Add(0.0f);
             playerRanking.Add(i+1);
+            Debug.Log("index : "+i);
             playerRankImages[i].sprite = playerRankSprites[i];
         }
         trackHeight = UITrack.GetComponent<RectTransform>().sizeDelta.y;
@@ -43,6 +49,7 @@ public class ProgressTracker : MonoBehaviour
         for(int i = 0; i < playerTransforms.Count; i++){
             Transform player = playerTransforms[i];
             float distance = Vector3.Distance(player.position, goalTransform.position);
+            Debug.Log(i + " : "+distance);
             playerProgress[i] = Mathf.InverseLerp(maxDistance, minDistance, distance);
             playerTrackIcons[i].anchoredPosition = new Vector3(playerTrackIcons[i].anchoredPosition.x, playerProgress[i]*trackHeight, 0);
         }
