@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     {
         manager = GetComponent<PlayerInputManager>();
         instance = this;
-        GameFinishedUI.SetActive(false);
     }
 
     public void StartGame()
