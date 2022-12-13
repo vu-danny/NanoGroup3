@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
 {
     public bool RouleMaBoule = false;
     public float Speed = 10f;
-    private Camera _camera;
+
+    [SerializeField] private AnimationCurve SpeedBasedOnScale;
+    [SerializeField] private Camera _camera;
      [System.NonSerialized] public Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
 
@@ -32,7 +34,6 @@ public class Player : MonoBehaviour
         InitEul = transform.eulerAngles;
         InitSca = transform.localScale;
         
-        _camera = GetComponentInChildren<Camera>();
         _rigidbody = GetComponent<Rigidbody>();
         if(!RouleMaBoule) _rigidbody.isKinematic = true;
     }
@@ -55,21 +56,22 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        inputVector = context.ReadValue<Vector2>() * Speed;
-        if (context.performed)
-        {
-            // Input direction correction, according to the player velocity
-            Vector3 direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized;
-            float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x * _rigidbody.velocity.magnitude / 2, 0, 0);
-            Debug.Log(inputVector);
-        }
+        if(context.performed)
+            inputVector = context.ReadValue<Vector2>() * Speed;
     }
 
     private void Update()
     {
-        _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
-        Debug.Log(_rigidbody.velocity);
+        _rigidbody.AddForce(inputVector.x * _camera.transform.right, ForceMode.Force);
+        _rigidbody.velocity =
+            Vector3.ClampMagnitude(_rigidbody.velocity, SpeedBasedOnScale.Evaluate(transform.localScale.x));
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Debug.DrawLine(transform.position, transform.position + inputVector.x * _camera.transform.right);
+        Debug.DrawLine(_camera.transform.position, _camera.transform.position + inputVector.x * _camera.transform.right);
     }
 
     private void FixedUpdate() {
