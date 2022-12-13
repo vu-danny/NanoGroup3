@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public Camera StartCamera;
     public List<Transform> StartingPoints;
 
-    private Player Player1;
-    private Player Player2;
+    [System.NonSerialized] public Player Player1;
+    [System.NonSerialized] public Player Player2;
     [SerializeField] private Snowman Snowman1;
     [SerializeField] private Snowman Snowman2;
 

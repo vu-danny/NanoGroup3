@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool RouleMaBoule = false;
     public float Speed = 10f;
     private Camera _camera;
-    private Rigidbody _rigidbody;
+     [System.NonSerialized] public Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
 
     [System.NonSerialized] public bool Arrived = false;

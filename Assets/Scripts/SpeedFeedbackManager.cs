@@ -16,6 +16,7 @@ public class SpeedFeedbackManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> oppositeLayerAsPlayer;
     private int playerLayer, opponentLayer;
+    public LayerMask p1;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +24,7 @@ public class SpeedFeedbackManager : MonoBehaviour
         player1Volume.weight = 1-player1Speed;
         player2Volume.weight = 1-player2Speed;    
 
-        //Camera.main.GetUniversalAdditionalCameraData().volumeLayerMask = 
+        Camera.main.GetUniversalAdditionalCameraData().volumeLayerMask = p1;
     }
 
     private void OnCamInstantiation(){
