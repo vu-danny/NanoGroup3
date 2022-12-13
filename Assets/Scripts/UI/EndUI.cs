@@ -10,25 +10,33 @@ public class EndUI : MonoBehaviour
     [SerializeField] GameObject resultLinePrefab;
     private bool first;
     private List<PlayerResultDisplayer> resDisplayers;
+
+    private List<GameObject> registered;
+
     private void Awake(){
         first = true;
         resDisplayers = new List<PlayerResultDisplayer>();
+        registered = new List<GameObject>();
+        gameObject.SetActive(false);
     }
 
     public void AddResult(GameObject playerObject){
-        Player player = playerObject.GetComponent<Player>();
-        GameObject resultLine = GameObject.Instantiate(resultLinePrefab, resultLines.transform);
-        PlayerResultDisplayer resDisplayer = resultLine.GetComponent<PlayerResultDisplayer>();
-        int pNumber = player.number;
-        float time = player.Timer;
-        float size = playerObject.GetComponent<SnowballSizer>().Size;
-        resDisplayer.InitializeValues(first, pNumber, time, size);
-        if(first)
-            winnerText.text = "Joueur "+pNumber+" l'emporte !";
-        first = false;
-        resDisplayers.Add(resDisplayer);
+            if(!registered.Contains(playerObject)){
+            registered.Add(playerObject);
+            Player player = playerObject.GetComponent<Player>();
+            GameObject resultLine = GameObject.Instantiate(resultLinePrefab, resultLines.transform);
+            PlayerResultDisplayer resDisplayer = resultLine.GetComponent<PlayerResultDisplayer>();
+            int pNumber = player.number;
+            float time = player.Timer;
+            float size = playerObject.GetComponent<SnowballSizer>().Size;
+            resDisplayer.InitializeValues(first, pNumber, time, size);
+            if(first)
+                winnerText.text = "Joueur "+pNumber+" l'emporte !";
+            first = false;
+            resDisplayers.Add(resDisplayer);
 
-        UpdateBiggest();
+            UpdateBiggest();
+        }
     }
 
     private void UpdateBiggest(){

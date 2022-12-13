@@ -68,8 +68,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -279,8 +280,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0000 m
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -414,8 +416,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: ' Joueur 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -611,6 +614,7 @@ MonoBehaviour:
   playerText: {fileID: 4509685575813727672}
   timeText: {fileID: 4509685574800586191}
   sizeText: {fileID: 4509685575243146101}
+  ballSize: 0
 --- !u!1 &4509685576134645267
 GameObject:
   m_ObjectHideFlags: 0
