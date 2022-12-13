@@ -15,11 +15,9 @@ public class PlayerResultDisplayer : MonoBehaviour
     [SerializeField] TMP_Text playerText;
     [SerializeField] TMP_Text timeText;
     [SerializeField] TMP_Text sizeText;
+
+    public float ballSize;
     
-    void Awake(){
-        InitializeValues(true, 69, 154.3521f, 24.2414f);
-        UpdateBall(true);
-    }
     public void InitializeValues(bool first, int playerNumber, float timeSeconds, float size){
         speedImage.sprite = first ? speedIcon : blankIcon;
         playerText.text = "Joueur "+playerNumber;
@@ -29,6 +27,7 @@ public class PlayerResultDisplayer : MonoBehaviour
         seconds %= 60;
         timeText.text = minutes.ToString("D2")+":"+seconds.ToString("D2")+":"+ms.ToString("D2");
         sizeText.text = string.Format("{0:0.00}", size) +" m";
+        ballSize = size;
     }
 
     public void UpdateBall(bool biggest){
