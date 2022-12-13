@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028353, g: 0.2257137, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18192513, g: 0.22410221, b: 0.2870778, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &352445040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 934175089076573691, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+    type: 3}
+  m_PrefabInstance: {fileID: 1254131978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef9f38d257bb27499b1179644c2e00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &610927047
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,14 +300,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893342005}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.24051325, y: 0.19737889, z: 0.2762802, w: 0.9093208}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.168, y: 31.381, z: 39.232}
 --- !u!114 &893342008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +533,11 @@ PrefabInstance:
       propertyPath: growthFactor.m_Curve.Array.data[2].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 5512279841940742595, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+        type: 3}
+      propertyPath: _snowballSizer
+      value: 
+      objectReference: {fileID: 352445040}
     - target: {fileID: 5512279842284210048, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: RouleMaBoule
@@ -559,17 +576,17 @@ PrefabInstance:
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 507.6
+      value: 754.4
       objectReference: {fileID: 0}
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 848
+      value: 828.05
       objectReference: {fileID: 0}
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1935
+      value: -1903
       objectReference: {fileID: 0}
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
