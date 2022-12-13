@@ -541,5 +541,75 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598293094161254, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_Name
+      value: InstructionScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598293094161254, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4211c32cf77a62a4bb8098092b1dc36e, type: 3}
