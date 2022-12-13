@@ -6,6 +6,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Player Player;
+    public AnimationCurve LookUpCurve;
+    [SerializeField] private SnowballSizer _snowballSizer;
     private Vector3 BaseOffset;
     private Vector3 offset;
 
@@ -13,8 +15,8 @@ public class CameraController : MonoBehaviour
     private float CameraDistance = 1f;
     private Coroutine CoroutineRotationStamp;
     private float CameraAngle = 0f;
-    
-    
+
+
     void Start()
     {
         BaseOffset = transform.localPosition - Player.transform.localPosition;
@@ -30,10 +32,11 @@ public class CameraController : MonoBehaviour
         // Check if the Camera distance value changed
         if (Player.GetCameraDistanceValue() != CameraDistance)
         {
+            float NextDistance = Player.GetCameraDistanceValue();
             // Retrieve the offset, based on player velocity
             Vector3 TargetOffset = new Vector3(0f, 
-                BaseOffset.y * Player.GetCameraDistanceValue(), 
-                BaseOffset.z * Player.GetCameraDistanceValue());
+                BaseOffset.y * (NextDistance / 2),  
+                BaseOffset.z * NextDistance);
             
             // Stops the last coroutine, if it didn't have the time to end
             if (CoroutineDistanceStamp != null)
@@ -44,9 +47,11 @@ public class CameraController : MonoBehaviour
             CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
         }
         // Set the camera position, based on the previously calculated offset
-        transform.position = Player.transform.position + offset;
+        Debug.Log(((Vector3.up + Vector3.back) * (_snowballSizer.Size-1)));
+        transform.position = Player.transform.position + offset + ((Vector3.up + Vector3.back) * (_snowballSizer.Size-1));
+        
         // Set the camera rotation, that'll look a bit above the player
-        transform.LookAt(Player.transform.position + (Vector3.up));
+        transform.LookAt(Player.transform.position + Vector3.up + (Vector3.up * (_snowballSizer.Size-1) / 2) );
         
         // Get the angle of the difference between player velocity and world forward vector
         Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
