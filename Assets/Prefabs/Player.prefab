@@ -142,13 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 5512279842284210048}
-  LookUpCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _snowballSizer: {fileID: 0}
 --- !u!114 &-1833546373109954669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef9f38d257bb27499b1179644c2e00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSize: 50
+  maxSize: 25
   minSize: 1
   growthFactor:
     serializedVersion: 2
@@ -315,6 +308,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RouleMaBoule: 0
   Speed: 10
+  SpeedBasedOnScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 20
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.049636465
+    - serializedVersion: 3
+      time: 50
+      value: 200
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.052013468
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _camera: {fileID: 5512279841940742655}
   number: 0
 --- !u!54 &5512279842284210049
 Rigidbody:
