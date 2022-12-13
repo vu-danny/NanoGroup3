@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SteepSurfacesTexture:
-        m_Texture: {fileID: 2800000, guid: 52d589c6c70b83749a76613b6e720715, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e98c4c7756e927489e47893ad5926d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -72,7 +72,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GrassMetallic: 0.063
+    - _GrassMetallic: 0.086
     - _GrassSmoothness: 0.125
     - _MaxDistance: 25
     - _Metallic: 0.585
@@ -85,7 +85,7 @@ Material:
     - _SnowScale: 1
     - _SnowSmoothness: 0.402
     - _SnowSparklesStep: 0.999
-    - _Splat1Tiling: 150
+    - _Splat1Tiling: 25
     - _Splat2Tiling: 9.53
     - _SteepSurfaceEdge: 0.155
     - _SteepSurfaceMaskStep: 0.644
@@ -94,8 +94,8 @@ Material:
     - _Step: 0.594
     - _blend: 0.817
     m_Colors:
-    - _RockColor: {r: 0.9174538, g: 0.7971876, b: 0.9245283, a: 0}
+    - _RockColor: {r: 1, g: 1, b: 1, a: 0}
     - _Snow: {r: 0.7956568, g: 0.9303969, b: 0.9433962, a: 0}
     - _SnowSparksColor: {r: 1.8980392, g: 2.9490197, b: 2.9960785, a: 0}
-    - _grassColor: {r: 0.4230865, g: 0.5377358, b: 0.45471388, a: 0}
+    - _grassColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0}
   m_BuildTextureStacks: []
