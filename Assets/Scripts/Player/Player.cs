@@ -17,9 +17,14 @@ public class Player : MonoBehaviour
     private Vector3 InitPos;
     private Vector3 InitEul;
     private Vector3 InitSca;
+    private float time;
+    public float Timer{get{ return time;}}
+    bool started;
 
     private void Awake()
     {
+        time = 0.0f;
+        started = false;
         InitPos = transform.position;
         InitEul = transform.eulerAngles;
         InitSca = transform.localScale;
@@ -31,6 +36,7 @@ public class Player : MonoBehaviour
 
     public void StartRun()
     {
+        started = true;
         _rigidbody.isKinematic = false;
     }
 
@@ -61,6 +67,12 @@ public class Player : MonoBehaviour
         _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
     }
 
+    private void FixedUpdate() {
+        if(started){
+            time += Time.fixedDeltaTime;
+        }    
+    }
+
     /// <summary>
     /// Get the distance the camera should have, according to the Player velocity
     /// </summary>
@@ -74,6 +86,7 @@ public class Player : MonoBehaviour
 
     public void EndRun()
     {
+        started = false;
         _rigidbody.isKinematic = true;
         Snowman.Build(this);
     }

@@ -19,8 +19,8 @@ public class EndUI : MonoBehaviour
         GameObject resultLine = GameObject.Instantiate(resultLinePrefab, resultLines.transform);
         PlayerResultDisplayer resDisplayer = resultLine.GetComponent<PlayerResultDisplayer>();
         int pNumber = 1; // TODO
-        float time = 60; // TODO
-        float size = 1; // TODO
+        float time = playerObject.GetComponent<Player>().Timer;
+        float size = playerObject.transform.localScale.x; // TODO switch to script
         resDisplayer.InitializeValues(first, pNumber, time, size);
         if(first)
             winnerText.text = "Joueur "+pNumber+" l'emporte !";
