@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,18 +811,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &991783520 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1270387920390150848, guid: b3ba7d11e49cfb045862faf5367f0326,
-    type: 3}
-  m_PrefabInstance: {fileID: 518486020267269094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a0304fa1510b4244b7b4ccf0d30bc1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1351283317 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1041531380, guid: eea705fd17ada5d46a3e6a117e1d8e37,
@@ -1031,7 +1019,7 @@ PrefabInstance:
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5512279843347075394, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
@@ -1101,7 +1089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: HUD
       value: 
-      objectReference: {fileID: 991783520}
+      objectReference: {fileID: 0}
     - target: {fileID: 453332145271418317, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_Name
@@ -1115,7 +1103,7 @@ PrefabInstance:
     - target: {fileID: 453332145271418319, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 453332145271418319, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
@@ -1167,7 +1155,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8cbbedd5e3be9c24481e0d315138d802, type: 3}
 --- !u!1001 &518486020267269094
 PrefabInstance:
@@ -1285,6 +1274,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852244611509460492, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ba7d11e49cfb045862faf5367f0326, type: 3}
