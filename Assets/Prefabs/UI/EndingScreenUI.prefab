@@ -68,8 +68,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Joueur 1 l'emporte
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -203,8 +204,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quitter
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -409,8 +411,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nous avons un gagnant !
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -812,8 +815,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Recommencer
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 358ee92fd89eeb14b86d82d4b89d8ee6, type: 2}
+  m_sharedMaterial: {fileID: -3257335841136147584, guid: 358ee92fd89eeb14b86d82d4b89d8ee6,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
