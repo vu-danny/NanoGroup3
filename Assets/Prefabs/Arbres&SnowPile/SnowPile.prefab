@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7251483886703140053}
   - component: {fileID: 4562743854110674382}
   - component: {fileID: 1592340070790650041}
+  - component: {fileID: 4149646335022441129}
   m_Layer: 6
   m_Name: SnowPile
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 2196919007116047532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7765553292972122691}
   m_Father: {fileID: 0}
@@ -42,7 +43,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2196919007116047532}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.0565052
@@ -59,7 +60,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
+  power: 70
+--- !u!114 &4149646335022441129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196919007116047532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a740e228835a8db4dac02ef0f12b85c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7804299375966586280
 PrefabInstance:
   m_ObjectHideFlags: 0

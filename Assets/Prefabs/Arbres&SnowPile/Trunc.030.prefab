@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6182983258610690625}
   - component: {fileID: 4497829649902060550}
   - component: {fileID: 6024077581528984963}
-  - component: {fileID: -8333497789661032885}
   - component: {fileID: 6629720389647841622}
+  - component: {fileID: -1763457606891696691}
+  - component: {fileID: -1261740807776335823}
   m_Layer: 8
   m_Name: Trunc.030
   m_TagString: Untagged
@@ -85,20 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-8333497789661032885
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2038758079609217855}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2341096014275266734, guid: 20be4d892d0db24449b6c0d014e72e6d, type: 3}
 --- !u!114 &6629720389647841622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,5 +98,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43df056620488d64cb5ef43335f0fa03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0
-  shrinkageLevel: 0
+  speedMultiplier: 0.3
+  shrinkageLevel: 80
+--- !u!114 &-1763457606891696691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038758079609217855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a740e228835a8db4dac02ef0f12b85c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-1261740807776335823
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038758079609217855}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 6.720678, z: 2.3}
+  m_Center: {x: 0, y: 3.0357559, z: 0}
