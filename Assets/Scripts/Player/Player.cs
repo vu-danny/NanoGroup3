@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public bool RouleMaBoule = false;
     public float Speed = 10f;
+    [SerializeField] private AnimationCurve SpeedBasedOnScale;
     [SerializeField] private Camera _camera;
     private Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
@@ -61,6 +62,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _rigidbody.AddForce(inputVector.x * _camera.transform.right, ForceMode.Force);
+        _rigidbody.velocity =
+            Vector3.ClampMagnitude(_rigidbody.velocity, SpeedBasedOnScale.Evaluate(transform.localScale.x));
     }
     
     private void OnDrawGizmos()
