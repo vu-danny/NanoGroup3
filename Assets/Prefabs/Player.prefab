@@ -161,9 +161,11 @@ GameObject:
   - component: {fileID: 5512279842284210052}
   - component: {fileID: 5512279842284210053}
   - component: {fileID: 5512279842284210050}
+  - component: {fileID: 934175089076573691}
   - component: {fileID: 5512279842284210051}
   - component: {fileID: 5512279842284210048}
   - component: {fileID: 5512279842284210049}
+  - component: {fileID: 1041531380}
   m_Layer: 0
   m_Name: SnowBall
   m_TagString: Untagged
@@ -179,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5512279842284210110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,6 +238,44 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &934175089076573691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512279842284210110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef9f38d257bb27499b1179644c2e00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 50
+  minSize: 1
+  growthFactor:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0025
+      inSlope: 0.2957453
+      outSlope: 0.2957453
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.29023597
+    - serializedVersion: 3
+      time: 1.004715
+      value: 1.0095818
+      inSlope: 1.4399614
+      outSlope: 1.4399614
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15394658
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!135 &5512279842284210051
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -278,6 +318,44 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1041531380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512279842284210110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef9f38d257bb27499b1179644c2e00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 50
+  minSize: 1
+  growthFactor:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0025
+      inSlope: 0.2957453
+      outSlope: 0.2957453
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.29023597
+    - serializedVersion: 3
+      time: 1.004715
+      value: 1.0095818
+      inSlope: 1.4399614
+      outSlope: 1.4399614
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15394658
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5512279843347075395
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +383,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 453.08, y: 251.28, z: 0.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5512279842284210052}
   - {fileID: 5512279841940742654}
@@ -402,20 +480,8 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9b3588d4-ab0a-4309-afa1-9be605bd269f
     m_ActionName: UI/TrackedDeviceOrientation
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 08efb11f-a193-4c36-b6ef-0d037df90b2b
-    m_ActionName: Player2/Move[/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 75d401cf-ed05-4ee8-9802-a08d65cc3417
-    m_ActionName: Player2/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e7cac3ca-e97b-4e98-9bf8-cd5702907955
-    m_ActionName: Player2/Fire[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player1
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 5512279841940742655}

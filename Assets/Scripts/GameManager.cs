@@ -18,14 +18,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Snowman Snowman1;
     [SerializeField] private Snowman Snowman2;
 
+    [SerializeField] private GameObject GameFinishedUI;
+
     private void Awake()
     {
         manager = GetComponent<PlayerInputManager>();
         instance = this;
+        GameFinishedUI.SetActive(false);
     }
 
     public void StartGame()
     {
+        Player1.number = 1;
+        Player2.number = 2;
         Player1.StartRun();
         Player2.StartRun();
     }
@@ -34,6 +39,7 @@ public class GameManager : MonoBehaviour
     {
         if (Player1.Arrived && Player2.Arrived)
         {
+            GameFinishedUI.SetActive(true);
             Player1.Reset();
             Player2.Reset();
         }

@@ -18,9 +18,16 @@ public class Player : MonoBehaviour
     private Vector3 InitPos;
     private Vector3 InitEul;
     private Vector3 InitSca;
+    private float time;
+    public float Timer{get{ return time;}}
+    bool started;
+
+    public int number;
 
     private void Awake()
     {
+        time = 0.0f;
+        started = false;
         InitPos = transform.position;
         InitEul = transform.eulerAngles;
         InitSca = transform.localScale;
@@ -32,6 +39,7 @@ public class Player : MonoBehaviour
 
     public void StartRun()
     {
+        started = true;
         _rigidbody.isKinematic = false;
     }
 
@@ -53,13 +61,21 @@ public class Player : MonoBehaviour
             // Input direction correction, according to the player velocity
             Vector3 direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized;
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x, 0, 0);
+            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x * _rigidbody.velocity.magnitude / 2, 0, 0);
+            Debug.Log(inputVector);
         }
     }
 
     private void Update()
     {
         _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
+        Debug.Log(_rigidbody.velocity);
+    }
+
+    private void FixedUpdate() {
+        if(started){
+            time += Time.fixedDeltaTime;
+        }    
     }
 
     /// <summary>
@@ -75,6 +91,7 @@ public class Player : MonoBehaviour
 
     public void EndRun()
     {
+        started = false;
         _rigidbody.isKinematic = true;
         Snowman.Build(this);
     }
