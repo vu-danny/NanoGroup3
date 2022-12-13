@@ -53,13 +53,15 @@ public class Player : MonoBehaviour
             // Input direction correction, according to the player velocity
             Vector3 direction = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized;
             float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x, 0, 0);
+            inputVector = Quaternion.Euler(angle * Vector3.up) * new Vector3(inputVector.x * _rigidbody.velocity.magnitude / 2, 0, 0);
+            Debug.Log(inputVector);
         }
     }
 
     private void Update()
     {
         _rigidbody.AddForce(new Vector3(inputVector.x, 0, inputVector.y), ForceMode.Force);
+        Debug.Log(_rigidbody.velocity);
     }
 
     /// <summary>
