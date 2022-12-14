@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
+    [SerializeField] Transform EndCameraPoint;
     [SerializeField] EndUI endUI;
 
     private void OnTriggerEnter(Collider other)

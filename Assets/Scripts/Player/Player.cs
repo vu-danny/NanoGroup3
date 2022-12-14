@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private Vector3 InitSca;
     private float time;
     public float Timer{get{ return time;}}
-    bool started;
+    [System.NonSerialized] public bool started;
 
     public int number;
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Snowman : MonoBehaviour
 {
     [SerializeField] private Transform PlayerPosition;
+    [SerializeField] private Transform EndCameraPoint;
     [SerializeField] private AnimationCurve JumpCurve;
     [System.NonSerialized] public Player _player;
     
@@ -23,6 +24,7 @@ public class Snowman : MonoBehaviour
     private IEnumerator PlayerLandOnSnowman(float duration, Animator FaceReveal)
     {
         Vector3 InitPos = _player.transform.position;
+        Vector3 InitCameraPos = _player._camera.transform.position;
         float timer = 0f;
         
         // Jump on snowman
@@ -31,6 +33,8 @@ public class Snowman : MonoBehaviour
             float y = JumpCurve.Evaluate(timer / duration) + Mathf.Lerp(InitPos.y, PlayerPosition.position.y, timer/duration);
             Vector3 translation = Vector3.Lerp(InitPos, PlayerPosition.position, timer / duration);
             _player.transform.position = new Vector3(translation.x, y, translation.z);
+            _player._camera.transform.position = Vector3.Lerp(InitCameraPos, EndCameraPoint.position, timer / duration);
+            _player._camera.transform.LookAt(_player.transform.position);
             timer += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
