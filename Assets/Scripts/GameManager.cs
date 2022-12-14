@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         if (Player1.Arrived && Player2.Arrived)
         {
+            HUD.gameObject.SetActive(false);
             GameFinishedUI.SetActive(true);
             GameFinishedUI.GetComponent<EndUI>().Activate();
         }
