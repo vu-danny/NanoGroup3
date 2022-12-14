@@ -96,7 +96,8 @@ public class Player : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + inputVector.x * _camera.transform.right);
         Debug.DrawLine(_camera.transform.position, _camera.transform.position + inputVector.x * _camera.transform.right);
         Gizmos.color = Color.black;
-        Debug.DrawLine(transform.position, transform.position - (new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized) * transform.localScale.x);
+        if(_rigidbody != null)
+            Debug.DrawLine(transform.position, transform.position - (new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized) * transform.localScale.x);
     }
 
     private void FixedUpdate() {

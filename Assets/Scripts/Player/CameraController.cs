@@ -14,11 +14,19 @@ public class CameraController : MonoBehaviour
     private Coroutine CoroutineRotationStamp;
     private float CameraAngle = 0f;
 
+    [SerializeField] private ParticleSystem SpeedVFX;
+
 
     void Start()
     {
+        
         BaseOffset = transform.localPosition - Player.transform.localPosition;
         offset = BaseOffset;
+    }
+
+    public void SetVFXLayer(LayerMask layer)
+    {
+        SpeedVFX.gameObject.layer = layer;
     }
  
     /// <summary>
@@ -69,6 +77,9 @@ public class CameraController : MonoBehaviour
         
         // Set the orbital camera angle
         transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
+
+        var emission = SpeedVFX.emission;
+        emission.rateOverTime = Player.GetVelocityInterpolation() * 20;
     }
 
     /// <summary>

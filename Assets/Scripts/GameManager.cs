@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
             Player1.Snowman = Snowman1;
             Snowman1._player = Player1;
             Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
+            Player1._camera.GetComponent<CameraController>().SetVFXLayer(Player1LayerMask);
         }
         else 
         {
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
             Player2.Snowman = Snowman2;
             Snowman2._player = Player2;
             Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
+            Player2._camera.GetComponent<CameraController>().SetVFXLayer(Player2LayerMask);
         }
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
