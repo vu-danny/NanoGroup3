@@ -6,8 +6,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Player Player;
-    public AnimationCurve LookUpCurve;
-    [SerializeField] private SnowballSizer _snowballSizer;
     private Vector3 BaseOffset;
     private Vector3 offset;
 
@@ -16,11 +14,20 @@ public class CameraController : MonoBehaviour
     private Coroutine CoroutineRotationStamp;
     private float CameraAngle = 0f;
 
+    [SerializeField] private ParticleSystem SpeedVFX;
+    public ParticleSystem DashVFX;
+
 
     void Start()
     {
+        
         BaseOffset = transform.localPosition - Player.transform.localPosition;
         offset = BaseOffset;
+    }
+
+    public void SetVFXLayer(LayerMask layer)
+    {
+        SpeedVFX.gameObject.layer = layer;
     }
  
     /// <summary>
@@ -29,49 +36,58 @@ public class CameraController : MonoBehaviour
     /// </summary>
     void LateUpdate()
     {
-        // Check if the Camera distance value changed
-        if (Player.GetCameraDistanceValue() != CameraDistance)
+        if (Player.started)
         {
-            float NextDistance = Player.GetCameraDistanceValue();
-            // Retrieve the offset, based on player velocity
-            Vector3 TargetOffset = new Vector3(0f, 
-                BaseOffset.y * (NextDistance / 2),  
-                BaseOffset.z * NextDistance);
-            
-            // Stops the last coroutine, if it didn't have the time to end
-            if (CoroutineDistanceStamp != null)
+            // Check if the Camera distance value changed
+            if (Player.GetCameraDistanceValue() != CameraDistance)
             {
-                StopCoroutine(CoroutineDistanceStamp);
-                CoroutineDistanceStamp = null;
+                float NextDistance = Player.GetCameraDistanceValue();
+                // Retrieve the offset, based on player velocity
+                Vector3 TargetOffset = new Vector3(0f,
+                    BaseOffset.y * (NextDistance / 2),
+                    BaseOffset.z * NextDistance);
+
+                // Stops the last coroutine, if it didn't have the time to end
+                if (CoroutineDistanceStamp != null)
+                {
+                    StopCoroutine(CoroutineDistanceStamp);
+                    CoroutineDistanceStamp = null;
+                }
+
+                CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
             }
-            CoroutineDistanceStamp = StartCoroutine(DistanceEffect(TargetOffset, 1f));
+
+            // Set the camera position, based on the previously calculated offset
+            transform.position = Player.transform.position + offset +
+                                 ((Vector3.up + Vector3.back) * (Player.transform.localScale.x - 1));
+
+            // Set the camera rotation, that'll look a bit above the player
+            transform.LookAt(
+                Player.transform.position + Vector3.up + (Vector3.up * (Player.transform.localScale.y) / 2));
+
+            // Get the angle of the difference between player velocity and world forward vector
+            Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
+            Vector3 direction = new Vector3(vel.x, 0, vel.z).normalized;
+            float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+
+            // Angle correction, in case one of the value (current angle and targeted angle) aren't the same sign
+            if (Mathf.Abs(CameraAngle - angle) > 100f)
+            {
+                if (angle > CameraAngle) CameraAngle += 360;
+                else angle += 360;
+            }
+
+            // If there is no rotation coroutine yet, and the angle difference is more than 5
+            // (to avoid rotation for a small amount), we start the CameraAngle smooth update
+            if (CoroutineRotationStamp == null && Mathf.Abs(CameraAngle - angle) > 5)
+                CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .5f));
+
+            // Set the orbital camera angle
+            transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
+
+            var emission = SpeedVFX.emission;
+            emission.rateOverTime = Player.GetVelocityInterpolation() * 500;
         }
-        // Set the camera position, based on the previously calculated offset
-        Debug.Log(((Vector3.up + Vector3.back) * (_snowballSizer.Size-1)));
-        transform.position = Player.transform.position + offset + ((Vector3.up + Vector3.back) * (_snowballSizer.Size-1));
-        
-        // Set the camera rotation, that'll look a bit above the player
-        transform.LookAt(Player.transform.position + Vector3.up + (Vector3.up * (_snowballSizer.Size-1) / 2) );
-        
-        // Get the angle of the difference between player velocity and world forward vector
-        Vector3 vel = Player.GetComponent<Rigidbody>().velocity;
-        Vector3 direction = new Vector3(vel.x, 0, vel.z).normalized;
-        float angle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-        
-        // Angle correction, in case one of the value (current angle and targeted angle) aren't the same sign
-        if (Mathf.Abs(CameraAngle - angle) > 100f)
-        {
-            if (angle > CameraAngle) CameraAngle += 360;
-            else angle += 360;
-        }
-        
-        // If there is no rotation coroutine yet, and the angle difference is more than 5
-        // (to avoid rotation for a small amount), we start the CameraAngle smooth update
-        if (CoroutineRotationStamp == null && Mathf.Abs(CameraAngle - angle) > 5)
-            CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .5f));
-        
-        // Set the orbital camera angle
-        transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
     }
 
     /// <summary>

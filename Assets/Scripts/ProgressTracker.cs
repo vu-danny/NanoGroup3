@@ -21,7 +21,12 @@ public class ProgressTracker : MonoBehaviour
     [SerializeField] private List<Image> playerRankImages;
     [SerializeField] private List<Sprite> playerRankSprites;
 
-    
+    public void AddPlayerTransform(Transform playerTransform){
+        if(playerTransforms == null)
+            playerTransforms = new List<Transform>();
+        playerTransforms.Add(playerTransform);
+    }
+
     void Awake(){
         playerProgress = new List<float>();
         playerRanking = new List<int>();
