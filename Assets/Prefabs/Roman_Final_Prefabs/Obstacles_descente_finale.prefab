@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453672484191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,6 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656452790846562
 GameObject:
@@ -315,6 +318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656452803391656
 GameObject:
@@ -375,6 +380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656452832675144
 GameObject:
@@ -476,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454462418373
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -589,6 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656452842695239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -702,6 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454302008331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -774,6 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 120
 --- !u!1 &3743656452967199510
 GameObject:
@@ -875,6 +887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453575452283
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -947,6 +960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656453043736152
 GameObject:
@@ -1048,6 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453043736154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1161,6 +1177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453046630672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1274,6 +1291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453054102911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1346,6 +1364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453121749117
 GameObject:
@@ -1489,6 +1509,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453236686652
 GameObject:
@@ -1673,6 +1695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453898725260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1745,6 +1768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453455528987
 GameObject:
@@ -1929,6 +1954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454270923447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2042,6 +2068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454240782241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2197,6 +2224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453755064020
 GameObject:
@@ -2464,6 +2493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656453888469705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2536,6 +2566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 120
 --- !u!1 &3743656453905110051
 GameObject:
@@ -2596,6 +2628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453919410946
 GameObject:
@@ -2656,6 +2690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656453974233167
 GameObject:
@@ -2716,6 +2752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 120
 --- !u!1 &3743656453974713559
 GameObject:
@@ -2776,6 +2814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656453991602547
 GameObject:
@@ -2919,6 +2959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656454015341201
 GameObject:
@@ -2979,6 +3021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656454022756131
 GameObject:
@@ -3163,6 +3207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454023758792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3691,6 +3736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454283331286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3804,6 +3850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454283544071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4000,6 +4047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454329194565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4072,6 +4120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656454482063396
 GameObject:
@@ -4369,6 +4419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656454659970991
 GameObject:
@@ -4470,6 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454659970993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4583,6 +4636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454673607742
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4779,6 +4833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454732293347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4934,6 +4989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 70
 --- !u!1 &3743656454810659258
 GameObject:
@@ -5035,6 +5092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 0.3
   shrinkageLevel: 80
+  registered: []
 --- !u!65 &3743656454810659260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5107,6 +5165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cd429416387e334d852292442798be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
+    type: 3}
   power: 180
 --- !u!1 &3743656454834641859
 GameObject:

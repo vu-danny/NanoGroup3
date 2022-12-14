@@ -9,13 +9,14 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadTitle(){
         SceneManager.LoadScene("Title");
+        if(GameManager.instance != null)
+            GameManager.instance.StopMusic();
     }
 
     public void LoadMain(){
         SceneManager.LoadScene("Main");
-        if(GameManager.instance != null){
-            GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
-        }
+        if(GameManager.instance != null)
+            GameManager.instance.StopMusic();
     }
 
     public void LoadAScene(string sceneName){

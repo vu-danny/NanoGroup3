@@ -63,6 +63,5 @@ public class EndUI : MonoBehaviour
     public void Activate()
     {
         RestartButton.Select();
-        
     }
 }

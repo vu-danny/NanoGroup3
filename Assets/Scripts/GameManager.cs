@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -117,5 +118,10 @@ public class GameManager : MonoBehaviour
         _gamepad.SetMotorSpeeds(strength * .5f,strength * 1f);
         yield return new WaitForSeconds(duration);
         _gamepad.SetMotorSpeeds(0,0);
+    }
+    public void StopMusic()
+    {
+        
+        GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
     }
 }
