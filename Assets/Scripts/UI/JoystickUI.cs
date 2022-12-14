@@ -13,7 +13,6 @@ public class JoystickUI : MonoBehaviour
     {
         Joystick = GetComponent<Image>();
         InitJoystickPos = Joystick.rectTransform.anchoredPosition;
-        Debug.Log(InitJoystickPos);
     }
 
     public void MoveJoystick(Vector2 gap)

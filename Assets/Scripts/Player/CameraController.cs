@@ -28,6 +28,10 @@ public class CameraController : MonoBehaviour
     public void SetVFXLayer(LayerMask layer)
     {
         SpeedVFX.gameObject.layer = layer;
+        foreach (var particle in DashVFX.GetComponentsInChildren<ParticleSystem>())
+        {
+            particle.gameObject.layer = layer;
+        }
     }
  
     /// <summary>

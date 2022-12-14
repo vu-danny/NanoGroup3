@@ -18,9 +18,11 @@ public class GameManager : MonoBehaviour
     public List<Transform> StartingPoints;
 
     [System.NonSerialized] public Player Player1;
-    [SerializeField] private LayerMask Player1LayerMask;
-    [System.NonSerialized] public Player Player2;
-    [SerializeField] private LayerMask Player2LayerMask;
+    [SerializeField] private LayerMask Camera1LayerMask;
+    [SerializeField] private LayerMask Camera1CullingMask;
+    [System.NonSerialized] public Player Player2;    
+    [SerializeField] private LayerMask Camera2LayerMask;
+    [SerializeField] private LayerMask Camera2CullingMask;
     [SerializeField] private Snowman Snowman1;
     [SerializeField] private Snowman Snowman2;
 
@@ -63,8 +65,9 @@ public class GameManager : MonoBehaviour
             Player1 = input.GetComponentInChildren<Player>();
             Player1.Snowman = Snowman1;
             Snowman1._player = Player1;
-            Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
-            Player1._camera.GetComponent<CameraController>().SetVFXLayer(Player1LayerMask);
+            Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Camera1LayerMask;
+            Player1._camera.GetComponent<CameraController>().SetVFXLayer(LayerMask.NameToLayer("Player1"));
+            Player1._camera.cullingMask = Camera1CullingMask;
 
             Rumble(GetGamepad(input), 1f);
             SelectionScreen.SetController(1, true);
@@ -74,8 +77,9 @@ public class GameManager : MonoBehaviour
             Player2 = input.GetComponentInChildren<Player>();
             Player2.Snowman = Snowman2;
             Snowman2._player = Player2;
-            Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
-            Player2._camera.GetComponent<CameraController>().SetVFXLayer(Player2LayerMask);
+            Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Camera2LayerMask;
+            Player2._camera.GetComponent<CameraController>().SetVFXLayer(LayerMask.NameToLayer("Player2"));
+            Player2._camera.cullingMask = Camera2CullingMask;
             
             SelectionScreen.SetController(2, true);
         }
