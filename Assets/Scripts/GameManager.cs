@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private PlayerInputManager manager;
     [SerializeField] private HUD HUD;
+    [SerializeField] private SelectionScreen SelectionScreen;
 
     public Camera StartCamera;
     public List<Transform> StartingPoints;
@@ -63,6 +64,8 @@ public class GameManager : MonoBehaviour
             Snowman1._player = Player1;
             Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
             Player1._camera.GetComponent<CameraController>().SetVFXLayer(Player1LayerMask);
+            
+            SelectionScreen.SetController(1, true);
         }
         else 
         {
@@ -71,6 +74,8 @@ public class GameManager : MonoBehaviour
             Snowman2._player = Player2;
             Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
             Player2._camera.GetComponent<CameraController>().SetVFXLayer(Player2LayerMask);
+            
+            SelectionScreen.SetController(2, true);
         }
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
@@ -78,9 +83,12 @@ public class GameManager : MonoBehaviour
         
         StartCamera.gameObject.SetActive(false);
         if (manager.playerCount >= manager.maxPlayerCount)
-        {
             manager.DisableJoining();
-            HUD.Countdown.ToggleAnimator();
-        }
+    }
+
+    public void StartCountDown()
+    {
+        SelectionScreen.gameObject.SetActive(false);
+        HUD.Countdown.ToggleAnimator();
     }
 }
