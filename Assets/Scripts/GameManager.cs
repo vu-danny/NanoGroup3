@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private PlayerInputManager manager;
     [SerializeField] private HUD HUD;
-    [SerializeField] private SelectionScreen SelectionScreen;
+    public SelectionScreen SelectionScreen;
 
     public Camera StartCamera;
     public List<Transform> StartingPoints;
@@ -64,7 +65,8 @@ public class GameManager : MonoBehaviour
             Snowman1._player = Player1;
             Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
             Player1._camera.GetComponent<CameraController>().SetVFXLayer(Player1LayerMask);
-            
+
+            Rumble(GetGamepad(input), 1f);
             SelectionScreen.SetController(1, true);
         }
         else 
@@ -77,11 +79,15 @@ public class GameManager : MonoBehaviour
             
             SelectionScreen.SetController(2, true);
         }
+        
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
-        
-        
-        StartCamera.gameObject.SetActive(false);
+
+
+        if (manager.playerCount == 1)
+            StartCamera.rect = new Rect(0.5f, 0f, 1f, 1f);
+            else if(manager.playerCount == 2)
+            StartCamera.gameObject.SetActive(false);
         if (manager.playerCount >= manager.maxPlayerCount)
             manager.DisableJoining();
     }
@@ -90,5 +96,22 @@ public class GameManager : MonoBehaviour
     {
         SelectionScreen.gameObject.SetActive(false);
         HUD.Countdown.ToggleAnimator();
+    }
+
+    private Gamepad GetGamepad(PlayerInput input)
+    {
+        return Gamepad.all.FirstOrDefault(g => input.devices.Any(d => d.deviceId == g.deviceId));
+    }
+
+    private void Rumble(Gamepad _gamepad, float strength)
+    {
+        StartCoroutine(RumbleCoroutine(_gamepad, strength, .3f));
+    }
+
+    private IEnumerator RumbleCoroutine(Gamepad _gamepad, float strength, float duration)
+    {
+        _gamepad.SetMotorSpeeds(strength * .5f,strength * 1f);
+        yield return new WaitForSeconds(duration);
+        _gamepad.SetMotorSpeeds(0,0);
     }
 }

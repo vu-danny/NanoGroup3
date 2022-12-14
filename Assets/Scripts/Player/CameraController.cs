@@ -80,13 +80,13 @@ public class CameraController : MonoBehaviour
             // If there is no rotation coroutine yet, and the angle difference is more than 5
             // (to avoid rotation for a small amount), we start the CameraAngle smooth update
             if (CoroutineRotationStamp == null && Mathf.Abs(CameraAngle - angle) > 5)
-                CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .5f));
+                CoroutineRotationStamp = StartCoroutine(SmoothRotation(angle, .2f));
 
             // Set the orbital camera angle
             transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
 
             var emission = SpeedVFX.emission;
-            emission.rateOverTime = Player.GetVelocityInterpolation() * 20;
+            emission.rateOverTime = Player.GetVelocityInterpolation() * 500;
         }
     }
 

@@ -10,10 +10,10 @@ public class Snowman : MonoBehaviour
     [SerializeField] private AnimationCurve JumpCurve;
     [System.NonSerialized] public Player _player;
     
-    public void Build(Player player, Animator FaceReveal)
+    public void Build(Player player, Animator FaceReveal, bool isFirst)
     {
         _player = player;
-        StartCoroutine(PlayerLandOnSnowman(3f, FaceReveal));
+        StartCoroutine(PlayerLandOnSnowman(3f, FaceReveal, isFirst));
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class Snowman : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayerLandOnSnowman(float duration, Animator FaceReveal)
+    private IEnumerator PlayerLandOnSnowman(float duration, Animator FaceReveal, bool isFirst)
     {
         Vector3 InitPos = _player.transform.position;
         Vector3 InitCameraPos = _player._camera.transform.position;
@@ -43,6 +43,7 @@ public class Snowman : MonoBehaviour
         _player.transform.position = PlayerPosition.position;
         
         // Face Reveal
+        if(!isFirst) _player.SnowmanHat.SetActive(false);
         FaceReveal.gameObject.transform.rotation = Quaternion.LookRotation(-transform.right);
         FaceReveal.gameObject.transform.Rotate(Vector3.left * 90);
         FaceReveal.SetTrigger("Reveal");
