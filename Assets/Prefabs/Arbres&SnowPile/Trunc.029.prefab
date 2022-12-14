@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 470696474852515504}
   - component: {fileID: 9140934275941964290}
   - component: {fileID: -3563452548497328944}
-  - component: {fileID: -6480757314251150648}
   - component: {fileID: 6803887983814917086}
   m_Layer: 8
   m_Name: Trunc.029
@@ -99,20 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43df056620488d64cb5ef43335f0fa03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0.3
-  shrinkageLevel: 80
---- !u!114 &-6480757314251150648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649156588007746482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a740e228835a8db4dac02ef0f12b85c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  speedMultiplier: 0.75
+  shrinkageLevel: 3
 --- !u!65 &6803887983814917086
 BoxCollider:
   m_ObjectHideFlags: 0
