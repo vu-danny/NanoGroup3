@@ -99,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 0.75
-  shrinkageLevel: 3
+  shrinkageLevel: 10
+  registered: []
 --- !u!65 &7036489132322850199
 BoxCollider:
   m_ObjectHideFlags: 0

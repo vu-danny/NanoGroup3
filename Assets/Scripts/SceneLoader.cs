@@ -13,7 +13,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMain(){
         SceneManager.LoadScene("Main");
-        GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
+        if(GameManager.instance != null){
+            GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
+        }
     }
 
     public void LoadAScene(string sceneName){
