@@ -4954,7 +4954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &78758994
 Camera:
   m_ObjectHideFlags: 0
@@ -20547,6 +20547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5512279843347075395, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea705fd17ada5d46a3e6a117e1d8e37, type: 3}
 --- !u!1001 &1212819597
@@ -25540,7 +25545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1498434823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30880,7 +30885,7 @@ PrefabInstance:
     - target: {fileID: 404340740137147248, guid: 5485f205cdc747d44aab19b6b3a60cfb,
         type: 3}
       propertyPath: weight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 404340740918406080, guid: 5485f205cdc747d44aab19b6b3a60cfb,
         type: 3}

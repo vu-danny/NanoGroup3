@@ -49,7 +49,6 @@ public class ProgressTracker : MonoBehaviour
         for(int i = 0; i < playerTransforms.Count; i++){
             Transform player = playerTransforms[i];
             float distance = Vector3.Distance(player.position, goalTransform.position);
-            Debug.Log(i + " : "+distance);
             playerProgress[i] = Mathf.InverseLerp(maxDistance, minDistance, distance);
             playerTrackIcons[i].anchoredPosition = new Vector3(playerTrackIcons[i].anchoredPosition.x, playerProgress[i]*trackHeight, 0);
         }

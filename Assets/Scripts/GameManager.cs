@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +16,9 @@ public class GameManager : MonoBehaviour
     public List<Transform> StartingPoints;
 
     [System.NonSerialized] public Player Player1;
+    [SerializeField] private LayerMask Player1LayerMask;
     [System.NonSerialized] public Player Player2;
+    [SerializeField] private LayerMask Player2LayerMask;
     [SerializeField] private Snowman Snowman1;
     [SerializeField] private Snowman Snowman2;
 
@@ -56,11 +60,13 @@ public class GameManager : MonoBehaviour
         {
             Player1 = input.GetComponentInChildren<Player>();
             Player1.Snowman = Snowman1;
+            Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
         }
         else 
         {
             Player2 = input.GetComponentInChildren<Player>();
             Player2.Snowman = Snowman2;
+            Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
         }
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;

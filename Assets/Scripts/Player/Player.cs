@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float Speed = 10f;
 
     [SerializeField] private AnimationCurve SpeedBasedOnScale;
-    [SerializeField] private Camera _camera;
+    public Camera _camera;
      [System.NonSerialized] public Rigidbody _rigidbody;
     private Vector2 inputVector = Vector2.zero;
 
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
             Quaternion.LookRotation(-new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
 
         // RateOverTime according to Player Speed
-        float velocityInterpolation = Mathf.InverseLerp(0, SpeedBasedOnScale[SpeedBasedOnScale.length - 1].value, _rigidbody.velocity.magnitude);
+        float velocityInterpolation = GetVelocityInterpolation();
         var emission = Spin.emission;
         emission.rateOverTime = velocityInterpolation * 100;
         emission = Trail.emission;
@@ -128,5 +128,10 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == 3) Trail.Play();
+    }
+
+    public float GetVelocityInterpolation()
+    {
+        return Mathf.InverseLerp(0, SpeedBasedOnScale[SpeedBasedOnScale.length - 1].value, _rigidbody.velocity.magnitude);
     }
 }
