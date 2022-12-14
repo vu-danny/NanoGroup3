@@ -812,6 +812,24 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1110810809104939990, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291157896638, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_text
+      value: Faites grossir votre boule de neige en ramassant les tas de neige au
+        sol. Evitez de vous prendre les arbres, et arrivez le premier en bas de la
+        piste !
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851598291232271078, guid: 4211c32cf77a62a4bb8098092b1dc36e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ded57784ade9e94182a3279f1448996,
+        type: 3}
     - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -840,7 +858,7 @@ PrefabInstance:
     - target: {fileID: 5851598291806700715, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -493.0546
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5851598292477653985, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
@@ -930,7 +948,7 @@ PrefabInstance:
     - target: {fileID: 5851598292705052860, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -493.0546
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5851598293094161254, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
@@ -940,7 +958,7 @@ PrefabInstance:
     - target: {fileID: 5851598293094161254, guid: 4211c32cf77a62a4bb8098092b1dc36e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1110810810350044784, guid: 4211c32cf77a62a4bb8098092b1dc36e, type: 3}
