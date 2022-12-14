@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private PlayerInputManager manager;
     [SerializeField] private HUD HUD;
-    [SerializeField] private SelectionScreen SelectionScreen;
+    public SelectionScreen SelectionScreen;
 
     public Camera StartCamera;
     public List<Transform> StartingPoints;
@@ -79,9 +79,12 @@ public class GameManager : MonoBehaviour
         }
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
-        
-        
-        StartCamera.gameObject.SetActive(false);
+
+
+        if (manager.playerCount == 1)
+            StartCamera.rect = new Rect(0.5f, 0f, 1f, 1f);
+            else if(manager.playerCount == 2)
+            StartCamera.gameObject.SetActive(false);
         if (manager.playerCount >= manager.maxPlayerCount)
             manager.DisableJoining();
     }

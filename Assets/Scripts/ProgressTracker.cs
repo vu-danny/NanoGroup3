@@ -33,7 +33,6 @@ public class ProgressTracker : MonoBehaviour
         for(int i = 0; i < playerTransforms.Count; i++){
             playerProgress.Add(0.0f);
             playerRanking.Add(i+1);
-            Debug.Log("index : "+i);
             playerRankImages[i].sprite = playerRankSprites[i];
         }
         trackHeight = UITrack.GetComponent<RectTransform>().sizeDelta.y;

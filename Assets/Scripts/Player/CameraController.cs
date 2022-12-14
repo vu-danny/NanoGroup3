@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
             transform.RotateAround(Player.transform.position, Vector3.up, CameraAngle);
 
             var emission = SpeedVFX.emission;
-            emission.rateOverTime = Player.GetVelocityInterpolation() * 20;
+            emission.rateOverTime = Player.GetVelocityInterpolation() * 500;
         }
     }
 

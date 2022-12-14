@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
 
     [System.NonSerialized] public bool Arrived = false;
     [System.NonSerialized] public Snowman Snowman;
+    public GameObject SnowmanHat;
     
     
     [SerializeField] private ParticleSystem Trail;
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
     [System.NonSerialized] public bool started;
 
     public int number;
+
+    public Image Joystick;
 
     private void Awake()
     {
@@ -121,7 +125,9 @@ public class Player : MonoBehaviour
     {
         started = false;
         _rigidbody.isKinematic = true;
-        Snowman.Build(this, _animator);
+
+        bool isFirst = GameManager.instance.Player1.Equals(this) ? GameManager.instance.Player2.started :  GameManager.instance.Player1.started;
+        Snowman.Build(this, _animator, isFirst);
     }
 
     private void OnCollisionExit(Collision other)
@@ -137,5 +143,15 @@ public class Player : MonoBehaviour
     public float GetVelocityInterpolation()
     {
         return Mathf.InverseLerp(0, SpeedBasedOnScale[SpeedBasedOnScale.length - 1].value, _rigidbody.velocity.magnitude);
+    }
+    
+    public void NavigateUI(InputAction.CallbackContext context)
+    {
+        if (GameManager.instance.SelectionScreen.gameObject.activeSelf)
+        {
+            if(context.performed)
+                inputVector = context.ReadValue<Vector2>();
+            Joystick.transform.position += 
+        }
     }
 }
