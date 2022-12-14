@@ -60,12 +60,14 @@ public class GameManager : MonoBehaviour
         {
             Player1 = input.GetComponentInChildren<Player>();
             Player1.Snowman = Snowman1;
+            Snowman1._player = Player1;
             Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
         }
         else 
         {
             Player2 = input.GetComponentInChildren<Player>();
             Player2.Snowman = Snowman2;
+            Snowman2._player = Player2;
             Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
         }
 

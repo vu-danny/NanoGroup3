@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem Trail;
     [SerializeField] private ParticleSystem Spin;
 
+    private Animator _animator;
+
     private Vector3 InitPos;
     private Vector3 InitEul;
     private Vector3 InitSca;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         InitSca = transform.localScale;
         
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponentInChildren<Animator>();
 
         if(!RouleMaBoule) _rigidbody.isKinematic = true;
     }
@@ -117,7 +120,7 @@ public class Player : MonoBehaviour
     {
         started = false;
         _rigidbody.isKinematic = true;
-        Snowman.Build(this);
+        Snowman.Build(this, _animator);
     }
 
     private void OnCollisionExit(Collision other)

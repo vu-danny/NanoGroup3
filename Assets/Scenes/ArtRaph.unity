@@ -20482,6 +20482,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618085058133317253, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618085058133317253, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 618085058133317253, guid: eea705fd17ada5d46a3e6a117e1d8e37,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5512279842284210048, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: RouleMaBoule
@@ -20550,7 +20565,7 @@ PrefabInstance:
     - target: {fileID: 5512279843347075395, guid: eea705fd17ada5d46a3e6a117e1d8e37,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea705fd17ada5d46a3e6a117e1d8e37, type: 3}
@@ -30710,7 +30725,7 @@ GameObject:
   - component: {fileID: 2137616695}
   - component: {fileID: 2137616697}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: SnowmanFace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30743,7 +30758,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137616693}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
