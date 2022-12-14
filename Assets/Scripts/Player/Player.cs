@@ -32,9 +32,9 @@ public class Player : MonoBehaviour
     public float Timer{get{ return time;}}
     [System.NonSerialized] public bool started;
 
-    public int number;
+    public JoystickUI JoystickUI;
 
-    public Image Joystick;
+    public int number;
 
     private void Awake()
     {
@@ -68,7 +68,11 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (GameManager.instance.SelectionScreen.gameObject.activeSelf)
+        {
+            JoystickUI.MoveJoystick(context.ReadValue<Vector2>() * 100);
+        }
+        else if(context.performed)
             inputVector = context.ReadValue<Vector2>() * Speed;
     }
 
@@ -82,7 +86,7 @@ public class Player : MonoBehaviour
     private void LateUpdate()
     {
         //Rotation correction
-        Spin.transform.LookAt(transform.position + new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
+        Spin.transform.LookAt(transform.position - new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
         Trail.transform.rotation =
             Quaternion.LookRotation(-new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
 
@@ -143,15 +147,5 @@ public class Player : MonoBehaviour
     public float GetVelocityInterpolation()
     {
         return Mathf.InverseLerp(0, SpeedBasedOnScale[SpeedBasedOnScale.length - 1].value, _rigidbody.velocity.magnitude);
-    }
-    
-    public void NavigateUI(InputAction.CallbackContext context)
-    {
-        if (GameManager.instance.SelectionScreen.gameObject.activeSelf)
-        {
-            /*if(context.performed)
-                inputVector = context.ReadValue<Vector2>();
-            Joystick.transform.position += */
-        }
     }
 }

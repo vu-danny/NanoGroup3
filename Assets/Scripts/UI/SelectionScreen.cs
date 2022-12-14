@@ -12,8 +12,8 @@ public class SelectionScreen : MonoBehaviour
     [SerializeField] private Image Controller2;
     [SerializeField] private TextMeshProUGUI Player1Name;
     [SerializeField] private TextMeshProUGUI Player2Name;
-    [SerializeField] private Image JoystickPLayer1;
-    [SerializeField] private Image JoystickPLayer2;
+    [SerializeField] private JoystickUI JoystickPlayer1;
+    [SerializeField] private JoystickUI JoystickPlayer2;
     
     [SerializeField] private Sprite SelectedController;
     [SerializeField] private Sprite UnselectedController;
@@ -32,13 +32,15 @@ public class SelectionScreen : MonoBehaviour
         {
             Controller1.sprite = on ? SelectedController : UnselectedController;
             Player1Name.text = on ? "Joueur 1" : " ";
-            GameManager.instance.Player1.Joystick = JoystickPLayer1;
+            if(on)
+                GameManager.instance.Player1.JoystickUI = JoystickPlayer1;
         } 
         else if (number == 2)
         {
             Controller2.sprite = on ? SelectedController : UnselectedController;
             Player2Name.text = on ? "Joueur 2" : " ";
-            GameManager.instance.Player2.Joystick = JoystickPLayer2;
+            if(on)
+                GameManager.instance.Player2.JoystickUI = JoystickPlayer2;
         }
         Start.interactable = Controller1.sprite == SelectedController && Controller2.sprite == SelectedController;
     }

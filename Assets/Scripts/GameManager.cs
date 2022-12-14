@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -17,9 +19,11 @@ public class GameManager : MonoBehaviour
     public List<Transform> StartingPoints;
 
     [System.NonSerialized] public Player Player1;
-    [SerializeField] private LayerMask Player1LayerMask;
-    [System.NonSerialized] public Player Player2;
-    [SerializeField] private LayerMask Player2LayerMask;
+    [SerializeField] private LayerMask Camera1LayerMask;
+    [SerializeField] private LayerMask Camera1CullingMask;
+    [System.NonSerialized] public Player Player2;    
+    [SerializeField] private LayerMask Camera2LayerMask;
+    [SerializeField] private LayerMask Camera2CullingMask;
     [SerializeField] private Snowman Snowman1;
     [SerializeField] private Snowman Snowman2;
 
@@ -62,9 +66,11 @@ public class GameManager : MonoBehaviour
             Player1 = input.GetComponentInChildren<Player>();
             Player1.Snowman = Snowman1;
             Snowman1._player = Player1;
-            Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player1LayerMask;
-            Player1._camera.GetComponent<CameraController>().SetVFXLayer(Player1LayerMask);
-            
+            Player1._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Camera1LayerMask;
+            Player1._camera.GetComponent<CameraController>().SetVFXLayer(LayerMask.NameToLayer("Player1"));
+            Player1._camera.cullingMask = Camera1CullingMask;
+
+            Rumble(GetGamepad(input), 1f);
             SelectionScreen.SetController(1, true);
         }
         else 
@@ -72,11 +78,13 @@ public class GameManager : MonoBehaviour
             Player2 = input.GetComponentInChildren<Player>();
             Player2.Snowman = Snowman2;
             Snowman2._player = Player2;
-            Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Player2LayerMask;
-            Player2._camera.GetComponent<CameraController>().SetVFXLayer(Player2LayerMask);
+            Player2._camera.GetUniversalAdditionalCameraData().volumeLayerMask = Camera2LayerMask;
+            Player2._camera.GetComponent<CameraController>().SetVFXLayer(LayerMask.NameToLayer("Player2"));
+            Player2._camera.cullingMask = Camera2CullingMask;
             
             SelectionScreen.SetController(2, true);
         }
+        
 
         input.gameObject.transform.position = StartingPoints[input.playerIndex].position;
 
@@ -93,5 +101,27 @@ public class GameManager : MonoBehaviour
     {
         SelectionScreen.gameObject.SetActive(false);
         HUD.Countdown.ToggleAnimator();
+    }
+
+    private Gamepad GetGamepad(PlayerInput input)
+    {
+        return Gamepad.all.FirstOrDefault(g => input.devices.Any(d => d.deviceId == g.deviceId));
+    }
+
+    private void Rumble(Gamepad _gamepad, float strength)
+    {
+        StartCoroutine(RumbleCoroutine(_gamepad, strength, .3f));
+    }
+
+    private IEnumerator RumbleCoroutine(Gamepad _gamepad, float strength, float duration)
+    {
+        _gamepad.SetMotorSpeeds(strength * .5f,strength * 1f);
+        yield return new WaitForSeconds(duration);
+        _gamepad.SetMotorSpeeds(0,0);
+    }
+    public void StopMusic()
+    {
+        
+        GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
     }
 }
