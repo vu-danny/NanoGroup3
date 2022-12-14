@@ -10115,6 +10115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 5512279842284210048}
   SpeedVFX: {fileID: 7578106712671849027}
+  DashVFX: {fileID: 7766152699177642590}
 --- !u!114 &-1833546373109954669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15792,6 +15793,12 @@ PrefabInstance:
 --- !u!4 &7766152699177642584 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4975366406105217394, guid: 4d4f5f80f42a28446924f96d34ea1a57,
+    type: 3}
+  m_PrefabInstance: {fileID: 3371762190615614250}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7766152699177642590 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4975366406105217396, guid: 4d4f5f80f42a28446924f96d34ea1a57,
     type: 3}
   m_PrefabInstance: {fileID: 3371762190615614250}
   m_PrefabAsset: {fileID: 0}

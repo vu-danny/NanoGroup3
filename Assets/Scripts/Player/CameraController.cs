@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
     private float CameraAngle = 0f;
 
     [SerializeField] private ParticleSystem SpeedVFX;
+    public ParticleSystem DashVFX;
 
 
     void Start()

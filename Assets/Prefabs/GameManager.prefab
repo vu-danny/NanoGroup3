@@ -207,9 +207,16 @@ MonoBehaviour:
   StartingPoints:
   - {fileID: 453332145938471460}
   - {fileID: 453332146304208181}
+  Player1LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Player2LayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   Snowman1: {fileID: 453332146088767030}
   Snowman2: {fileID: 453332145723711841}
   GameFinishedUI: {fileID: 0}
+  progressTracker: {fileID: 0}
 --- !u!114 &453332145271418318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +484,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 387447921e5dff143b6b1d15e8eca5fb, type: 2}
+  - {fileID: 2100000, guid: 675f2dbebf4b1f644aaa2bdcc0e1c4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -574,7 +581,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 387447921e5dff143b6b1d15e8eca5fb, type: 2}
+  - {fileID: 2100000, guid: 675f2dbebf4b1f644aaa2bdcc0e1c4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
