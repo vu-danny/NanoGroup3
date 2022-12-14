@@ -1,12 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
 
 public class Countdown : MonoBehaviour
 {
     private Animator Animator;
-    public FMOD.Studio.EventInstance Music;
     private void Awake()
     {
         Animator = GetComponent<Animator>();
@@ -20,8 +20,7 @@ public class Countdown : MonoBehaviour
     public void StartGameEvent()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/UIBellStart");
-        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music");
-        Music.start();
+        GameManager.instance.Music.start();
         GameManager.instance.StartGame();
     }
 

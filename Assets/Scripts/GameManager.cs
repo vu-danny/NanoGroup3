@@ -26,9 +26,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject GameFinishedUI;
     [SerializeField] private GameObject progressTracker;
 
+    [System.NonSerialized] public FMOD.Studio.EventInstance Music;
     private void Awake()
     {
         manager = GetComponent<PlayerInputManager>();
+        Music = FMODUnity.RuntimeManager.CreateInstance("event:/Music");
         instance = this;
     }
 

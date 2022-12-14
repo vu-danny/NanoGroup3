@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMOD.Studio;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
@@ -12,6 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMain(){
         SceneManager.LoadScene("Main");
+        GameManager.instance.Music.stop(STOP_MODE.IMMEDIATE);
     }
 
     public void LoadAScene(string sceneName){
