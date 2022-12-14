@@ -10254,20 +10254,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0.0025
-      inSlope: 0.2957453
-      outSlope: 0.2957453
+      inSlope: 0.15473795
+      outSlope: 0.15473795
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.29023597
+      outWeight: 0.23012428
     - serializedVersion: 3
-      time: 1.004715
-      value: 1.0095818
-      inSlope: 1.4399614
-      outSlope: 1.4399614
+      time: 0.47911304
+      value: 0.14964813
+      inSlope: 0.02489704
+      outSlope: 0.02489704
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.15394658
+      inWeight: 0.21429084
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0088964
+      value: 0.19754913
+      inSlope: 0.19591552
+      outSlope: 0.19591552
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.36842713
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -10298,27 +10307,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RouleMaBoule: 0
-  Speed: 10
+  Speed: 25
   SpeedBasedOnScale:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 1
-      value: 20
-      inSlope: 0
-      outSlope: 0
+      time: 0.7958336
+      value: 40.1651
+      inSlope: 0.1010802
+      outSlope: 0.1010802
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.049636465
+      outWeight: 0.19917151
     - serializedVersion: 3
-      time: 50
-      value: 50
-      inSlope: 0
-      outSlope: 0
+      time: 50.000004
+      value: 80.07078
+      inSlope: 0.0901041
+      outSlope: 0.0901041
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.052013468
+      inWeight: 0.20746768
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

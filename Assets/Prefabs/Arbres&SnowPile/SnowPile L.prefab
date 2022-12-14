@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickUpParticle: {fileID: 142914255763458507, guid: 67a582cbedbdb084baafc8f1c4b0eedb,
     type: 3}
-  power: 180
+  power: 40
 --- !u!1001 &1334934718571915199
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,7 +18,9 @@ public class Snowman : MonoBehaviour
 
     private void Update()
     {
+        if(_player != null){
         transform.localScale = _player.transform.localScale;
+        }
     }
 
     private IEnumerator PlayerLandOnSnowman(float duration, Animator FaceReveal)
