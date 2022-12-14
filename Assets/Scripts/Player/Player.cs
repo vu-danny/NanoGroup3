@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     private void LateUpdate()
     {
         //Rotation correction
-        Spin.transform.LookAt(transform.position + new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
+        Spin.transform.LookAt(transform.position - new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
         Trail.transform.rotation =
             Quaternion.LookRotation(-new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z).normalized);
 
