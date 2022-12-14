@@ -1401,6 +1401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 453332145271418317, guid: 8cbbedd5e3be9c24481e0d315138d802,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 453332145271418318, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_FixedNumberOfSplitScreens

@@ -10033,7 +10033,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 10000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -10327,8 +10327,8 @@ MonoBehaviour:
   SnowmanHat: {fileID: 3038699375467699816}
   Trail: {fileID: 7594215857390204432}
   Spin: {fileID: 1567834369415028817}
+  JoystickUI: {fileID: 0}
   number: 0
-  Joystick: {fileID: 0}
 --- !u!54 &5512279842284210049
 Rigidbody:
   m_ObjectHideFlags: 0
