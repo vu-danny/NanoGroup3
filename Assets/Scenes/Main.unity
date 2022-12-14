@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11220,17 +11220,17 @@ PrefabInstance:
     - target: {fileID: 453332145341327496, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 733
+      value: 257.6
       objectReference: {fileID: 0}
     - target: {fileID: 453332145341327496, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 296.2
+      value: 117.7
       objectReference: {fileID: 0}
     - target: {fileID: 453332145341327496, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1930.3
+      value: -421.1
       objectReference: {fileID: 0}
     - target: {fileID: 453332145533814248, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
@@ -11355,7 +11355,7 @@ PrefabInstance:
     - target: {fileID: 453332145938471460, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 453332145938471460, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
@@ -11390,7 +11390,7 @@ PrefabInstance:
     - target: {fileID: 453332146304208181, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -85
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 453332146304208181, guid: 8cbbedd5e3be9c24481e0d315138d802,
         type: 3}
@@ -12021,7 +12021,7 @@ PrefabInstance:
     - target: {fileID: 1509043391628599431, guid: f9896c5845b0aa2488e21a4fb5071297,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1509043392117344820, guid: f9896c5845b0aa2488e21a4fb5071297,
         type: 3}
