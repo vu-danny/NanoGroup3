@@ -149,9 +149,9 @@ public class Player : MonoBehaviour
     {
         if (GameManager.instance.SelectionScreen.gameObject.activeSelf)
         {
-            if(context.performed)
+            /*if(context.performed)
                 inputVector = context.ReadValue<Vector2>();
-            Joystick.transform.position += 
+            Joystick.transform.position += */
         }
     }
 }
