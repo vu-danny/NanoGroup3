@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EndUI : MonoBehaviour
 {
+    [SerializeField] private Button RestartButton;
     [SerializeField] TMP_Text winnerText;
     [SerializeField] GameObject resultLines;
     [SerializeField] GameObject resultLinePrefab;
@@ -56,5 +58,11 @@ public class EndUI : MonoBehaviour
         for(int i = 0; i<resDisplayers.Count; i++){
             resDisplayers[i].UpdateBall(i == biggestIndex);
         }
+    }
+
+    public void Activate()
+    {
+        RestartButton.Select();
+        
     }
 }

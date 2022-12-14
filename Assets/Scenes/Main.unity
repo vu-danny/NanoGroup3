@@ -4275,7 +4275,7 @@ GameObject:
   - component: {fileID: 327755058}
   - component: {fileID: 327755057}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11829,7 +11829,7 @@ PrefabInstance:
     - target: {fileID: 1509043391628599431, guid: f9896c5845b0aa2488e21a4fb5071297,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9896c5845b0aa2488e21a4fb5071297, type: 3}
@@ -19451,7 +19451,7 @@ PrefabInstance:
     - target: {fileID: 1879519062583984855, guid: 21a66a70750fc9c4ebdb254664f0f47e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1879519062583984859, guid: 21a66a70750fc9c4ebdb254664f0f47e,
         type: 3}
