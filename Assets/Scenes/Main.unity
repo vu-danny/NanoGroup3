@@ -1713,6 +1713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 617455300687098356, guid: b3ba7d11e49cfb045862faf5367f0326,
         type: 3}
+      propertyPath: maxDistance
+      value: 5560
+      objectReference: {fileID: 0}
+    - target: {fileID: 617455300687098356, guid: b3ba7d11e49cfb045862faf5367f0326,
+        type: 3}
       propertyPath: goalTransform
       value: 
       objectReference: {fileID: 335333753}
